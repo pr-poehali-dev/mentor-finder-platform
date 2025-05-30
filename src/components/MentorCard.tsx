@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 interface MentorCardProps {
   name: string;
-  supportArea: string;
+  subject: string;
   experience: number;
   specializations: string[];
   description: string;
@@ -13,7 +13,7 @@ interface MentorCardProps {
 
 const MentorCard = ({
   name,
-  supportArea,
+  subject,
   experience,
   specializations,
   description,
@@ -26,15 +26,15 @@ const MentorCard = ({
           <img
             src={imageUrl}
             alt={name}
-            className="w-16 h-16 rounded-full object-cover border-2 border-purple-100"
+            className="w-16 h-16 rounded-full object-cover border-2 border-blue-100"
           />
           <div className="flex-1">
             <h3 className="font-montserrat font-bold text-lg text-gray-900 mb-1">
               {name}
             </h3>
-            <p className="text-purple-600 font-medium">{supportArea}</p>
+            <p className="text-blue-600 font-medium">{subject}</p>
             <p className="text-sm text-gray-500">
-              {experience} лет поддержки коллег
+              {experience} лет опыта преподавания
             </p>
           </div>
         </div>
@@ -47,7 +47,7 @@ const MentorCard = ({
               <Badge
                 key={index}
                 variant="secondary"
-                className="bg-purple-50 text-purple-700 hover:bg-purple-100"
+                className="bg-blue-50 text-blue-700 hover:bg-blue-100"
               >
                 {spec}
               </Badge>
@@ -59,14 +59,14 @@ const MentorCard = ({
         </div>
 
         <div className="flex justify-between items-center">
-          <Button className="flex-1 mr-2 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-medium">
-            💚 Получить поддержку
+          <Button className="flex-1 mr-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium">
+            💬 Связаться с ментором
           </Button>
           <Button
             variant="outline"
-            className="px-3 border-emerald-200 text-emerald-600 hover:bg-emerald-50"
+            className="px-3 border-blue-200 text-blue-600 hover:bg-blue-50"
           >
-            🤗
+            ⭐
           </Button>
         </div>
       </CardContent>
