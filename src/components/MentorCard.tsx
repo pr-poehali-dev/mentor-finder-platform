@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 interface MentorCardProps {
   name: string;
-  subject: string;
+  supportArea: string;
   experience: number;
   specializations: string[];
   description: string;
@@ -13,7 +13,7 @@ interface MentorCardProps {
 
 const MentorCard = ({
   name,
-  subject,
+  supportArea,
   experience,
   specializations,
   description,
@@ -32,8 +32,10 @@ const MentorCard = ({
             <h3 className="font-montserrat font-bold text-lg text-gray-900 mb-1">
               {name}
             </h3>
-            <p className="text-purple-600 font-medium">{subject}</p>
-            <p className="text-sm text-gray-500">{experience} лет опыта</p>
+            <p className="text-purple-600 font-medium">{supportArea}</p>
+            <p className="text-sm text-gray-500">
+              {experience} лет поддержки коллег
+            </p>
           </div>
         </div>
       </CardHeader>
@@ -58,13 +60,13 @@ const MentorCard = ({
 
         <div className="flex justify-between items-center">
           <Button className="flex-1 mr-2 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-medium">
-            🤝 Связаться
+            💚 Получить поддержку
           </Button>
           <Button
             variant="outline"
             className="px-3 border-emerald-200 text-emerald-600 hover:bg-emerald-50"
           >
-            💬
+            🤗
           </Button>
         </div>
       </CardContent>
