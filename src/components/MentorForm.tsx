@@ -52,13 +52,13 @@ const MentorForm = ({ onSubmit }: { onSubmit: (mentor: any) => void }) => {
 
   return (
     <Card className="border-purple-100 shadow-lg">
-      <CardHeader className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-t-lg">
-        <CardTitle className="font-montserrat text-blue-800 flex items-center gap-2">
-          🎓 Стать ментором
+      <CardHeader className="bg-gradient-to-r from-emerald-50 to-emerald-100 rounded-t-lg">
+        <CardTitle className="font-montserrat text-emerald-800 flex items-center gap-2">
+          🏃‍♀️ Стать ментором-наставником
         </CardTitle>
-        <p className="text-blue-700 text-sm mt-2">
-          Поделитесь опытом с молодыми коллегами и помогите им в
-          профессиональном развитии
+        <p className="text-emerald-700 text-sm mt-2">
+          Поделитесь опытом и помогите коллегам избежать профессионального
+          выгорания
         </p>
       </CardHeader>
 
@@ -71,7 +71,7 @@ const MentorForm = ({ onSubmit }: { onSubmit: (mentor: any) => void }) => {
               onChange={(e) =>
                 setFormData((prev) => ({ ...prev, name: e.target.value }))
               }
-              className="border-gray-200 focus:border-blue-400"
+              className="border-gray-200 focus:border-emerald-400"
             />
             <Input
               placeholder="Направление поддержки"
@@ -79,7 +79,7 @@ const MentorForm = ({ onSubmit }: { onSubmit: (mentor: any) => void }) => {
               onChange={(e) =>
                 setFormData((prev) => ({ ...prev, subject: e.target.value }))
               }
-              className="border-gray-200 focus:border-blue-400"
+              className="border-gray-200 focus:border-emerald-400"
             />
           </div>
 
@@ -90,28 +90,28 @@ const MentorForm = ({ onSubmit }: { onSubmit: (mentor: any) => void }) => {
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, experience: e.target.value }))
             }
-            className="border-gray-200 focus:border-blue-400"
+            className="border-gray-200 focus:border-emerald-400"
           />
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              📚 Специализации
+              🎯 Области поддержки и экспертизы
             </label>
             <div className="flex gap-2 mb-2">
               <Input
-                placeholder="Добавить специализацию (например, подготовка к ЕГЭ)"
+                placeholder="Добавить область поддержки (например, работа с родителями)"
                 value={newSpec}
                 onChange={(e) => setNewSpec(e.target.value)}
                 onKeyPress={(e) =>
                   e.key === "Enter" && (e.preventDefault(), addSpecialization())
                 }
-                className="border-gray-200 focus:border-blue-400"
+                className="border-gray-200 focus:border-emerald-400"
               />
               <Button
                 type="button"
                 onClick={addSpecialization}
                 variant="outline"
-                className="border-blue-200 text-blue-600 hover:bg-blue-50"
+                className="border-emerald-200 text-emerald-600 hover:bg-emerald-50"
               >
                 +
               </Button>
@@ -121,7 +121,7 @@ const MentorForm = ({ onSubmit }: { onSubmit: (mentor: any) => void }) => {
                 <Badge
                   key={index}
                   variant="secondary"
-                  className="bg-blue-100 text-blue-700 cursor-pointer hover:bg-red-100 hover:text-red-700"
+                  className="bg-emerald-100 text-emerald-700 cursor-pointer hover:bg-red-100 hover:text-red-700"
                   onClick={() => removeSpecialization(spec)}
                 >
                   {spec} ×
@@ -132,10 +132,10 @@ const MentorForm = ({ onSubmit }: { onSubmit: (mentor: any) => void }) => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              👨‍🏫 О себе как о менторе
+              💪 Ваш опыт и подход к профилактике выгорания
             </label>
             <textarea
-              placeholder="Расскажите о своем педагогическом опыте, методах работы, чем можете помочь молодым коллегам..."
+              placeholder="Расскажите о своем опыте, методах сохранения мотивации и поддержки коллег..."
               value={formData.description}
               onChange={(e) =>
                 setFormData((prev) => ({
@@ -143,15 +143,15 @@ const MentorForm = ({ onSubmit }: { onSubmit: (mentor: any) => void }) => {
                   description: e.target.value,
                 }))
               }
-              className="w-full p-3 border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none resize-none h-32"
+              className="w-full p-3 border border-gray-200 rounded-md focus:border-emerald-400 focus:outline-none resize-none h-32"
             />
           </div>
 
           <Button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium"
+            className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-medium"
           >
-            🚀 Стать ментором на платформе
+            🚀 Присоединиться к команде наставников
           </Button>
         </form>
       </CardContent>
