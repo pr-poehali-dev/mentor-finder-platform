@@ -75,17 +75,18 @@ const Index = () => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
               <h1 className="font-montserrat text-3xl font-bold text-gray-900 mb-2">
-                Педагоги<span className="text-purple-600">Ментор</span>
+                Педагог-<span className="text-emerald-600">марафонец</span>
               </h1>
               <p className="text-gray-600">
-                Платформа для поиска наставников в образовании
+                Профилактика выгорания через программы менторства и
+                взаимоподдержки
               </p>
             </div>
             <Button
               onClick={() => setShowForm(!showForm)}
-              className="mt-4 md:mt-0 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white"
+              className="mt-4 md:mt-0 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white"
             >
-              {showForm ? "Скрыть форму" : "Стать ментором"}
+              {showForm ? "Скрыть форму" : "Стать ментором-наставником"}
             </Button>
           </div>
         </div>
@@ -99,56 +100,85 @@ const Index = () => {
           </div>
         )}
 
-        {/* Search and Filters */}
-        <div className="mb-8 bg-white rounded-lg shadow-sm border border-purple-100 p-6">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-1">
-              <Input
-                placeholder="Поиск по имени, предмету или специализации..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="border-gray-200 focus:border-purple-400"
-              />
+        <div className="mb-8 bg-white rounded-lg shadow-sm border border-emerald-100 p-6">
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-3 text-emerald-700 mb-2">
+              <span className="text-xl">🤝</span>
+              <h3 className="font-semibold">
+                Найти наставника или коллегу для взаимоподдержки
+              </h3>
             </div>
-            <div className="flex flex-wrap gap-2">
-              <Badge
-                variant={selectedSubject === "" ? "default" : "outline"}
-                className={`cursor-pointer ${selectedSubject === "" ? "bg-purple-600" : "hover:bg-purple-50"}`}
-                onClick={() => setSelectedSubject("")}
-              >
-                Все предметы
-              </Badge>
-              {subjects.map((subject) => (
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex-1">
+                <Input
+                  placeholder="Поиск по имени, предмету или области поддержки..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="border-gray-200 focus:border-emerald-400"
+                />
+              </div>
+              <div className="flex flex-wrap gap-2">
                 <Badge
-                  key={subject}
-                  variant={selectedSubject === subject ? "default" : "outline"}
-                  className={`cursor-pointer ${selectedSubject === subject ? "bg-purple-600" : "hover:bg-purple-50"}`}
-                  onClick={() => setSelectedSubject(subject)}
+                  variant={selectedSubject === "" ? "default" : "outline"}
+                  className={`cursor-pointer ${selectedSubject === "" ? "bg-emerald-600 text-white" : "hover:bg-emerald-50"}`}
+                  onClick={() => setSelectedSubject("")}
                 >
-                  {subject}
+                  Все направления
                 </Badge>
-              ))}
+                {subjects.map((subject) => (
+                  <Badge
+                    key={subject}
+                    variant={
+                      selectedSubject === subject ? "default" : "outline"
+                    }
+                    className={`cursor-pointer ${selectedSubject === subject ? "bg-emerald-600 text-white" : "hover:bg-emerald-50"}`}
+                    onClick={() => setSelectedSubject(subject)}
+                  >
+                    {subject}
+                  </Badge>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
+        {/* Mission Section */}
+        <div className="mb-8 bg-gradient-to-r from-emerald-50 to-blue-50 rounded-lg p-6 border border-emerald-100">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              🏃‍♀️ Миссия платформы
+            </h2>
+            <p className="text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              Создание уникальной системы взаимовыручки и обмена опытом внутри
+              педагогического сообщества. Мы объединяем поколения педагогов для
+              поддержания профессионализма, сохранения творческого потенциала и
+              предотвращения усталости и апатии. Вместе мы — единая команда
+              единомышленников!
+            </p>
+          </div>
+        </div>
+
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-purple-100">
-            <div className="text-3xl font-bold text-purple-600 mb-2">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-emerald-100">
+            <div className="text-3xl font-bold text-emerald-600 mb-2">
               {mentors.length}
             </div>
-            <div className="text-gray-600">Активных менторов</div>
+            <div className="text-gray-600">Активных наставников</div>
           </div>
-          <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-purple-100">
-            <div className="text-3xl font-bold text-orange-600 mb-2">
+          <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-blue-100">
+            <div className="text-3xl font-bold text-blue-600 mb-2">
               {subjects.length}
             </div>
-            <div className="text-gray-600">Предметов</div>
+            <div className="text-gray-600">Направлений поддержки</div>
           </div>
           <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-purple-100">
-            <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
-            <div className="text-gray-600">Проверенные педагоги</div>
+            <div className="text-3xl font-bold text-purple-600 mb-2">95%</div>
+            <div className="text-gray-600">Снижение выгорания</div>
+          </div>
+          <div className="bg-white rounded-lg p-6 text-center shadow-sm border border-orange-100">
+            <div className="text-3xl font-bold text-orange-600 mb-2">∞</div>
+            <div className="text-gray-600">Преемственность поколений</div>
           </div>
         </div>
 

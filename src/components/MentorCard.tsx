@@ -56,9 +56,17 @@ const MentorCard = ({
           </p>
         </div>
 
-        <Button className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-medium">
-          Связаться с ментором
-        </Button>
+        <div className="flex justify-between items-center">
+          <Button className="flex-1 mr-2 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-medium">
+            🤝 Связаться
+          </Button>
+          <Button
+            variant="outline"
+            className="px-3 border-emerald-200 text-emerald-600 hover:bg-emerald-50"
+          >
+            💬
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );
